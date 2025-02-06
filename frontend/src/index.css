@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+body{
+    background-color:#343434;
+    padding:0;
+    margin:0;
+}
+
+.animate__animated.animate__fadeInLeft,
+.animate__animated.animate__fadeInRight,
+.animate__animated.animate__fadeInUp{
+    --animate-duration:1s
+}
