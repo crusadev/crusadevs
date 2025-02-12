@@ -7,6 +7,8 @@ import Planet from "../../assets/planet.svg"
 import { useEffect, useRef } from "react";
 import "animate.css"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Contact from "../../components/contact-form";
+import Footer from "../../components/footer";
 
 const Home = () => {
     const [planetStyle,planetApi] = useSpring(() => ({
@@ -82,22 +84,25 @@ const Home = () => {
 
     return(
     <>
-        <div className="flex content-center justify-center absolute w-full h-screen">
-            <animated.img
-            className="w-[30%] object-contain relative left-[1%] p-[3%] animate__animated animate__fadeInUp"
-            src={Software}
-            style={{}}/>
-            <animated.img
-            className="w-[30%] ml-[-72px] mr-[-64px] animate__animated animate__fadeInUp"
-            src={Logo}
-            style={{}}/>
-            <animated.img
-            className="w-[30%] object-contain animate__animated animate__fadeInUp"
-            src={Development}
-            style={{}}
-            />
-        </div>
         <Parallax pages={3} >
+            <ParallaxLayer
+            offset={0}
+            speed={-1.5}
+            className="flex content-center justify-center absolute w-full h-screen">
+                <animated.img
+                className="w-[30%] object-contain relative left-[1%] p-[3%] animate__animated animate__fadeInUp"
+                src={Software}
+                style={{}}/>
+                <animated.img
+                className="w-[30%] ml-[-72px] mr-[-64px] animate__animated animate__fadeInUp"
+                src={Logo}
+                style={{}}/>
+                <animated.img
+                className="w-[30%] object-contain animate__animated animate__fadeInUp"
+                src={Development}
+                style={{}}
+                />
+            </ParallaxLayer>
             <ParallaxLayer
             offset={0}
             speed={-1}>
@@ -117,9 +122,9 @@ const Home = () => {
             className="bg-[#343434]"></ParallaxLayer>
             <ParallaxLayer
             offset={1}
-            speed={-.5}
+            speed={-.25}
             className="">
-                <div className="w-full h-full flex absolute pt-[8%] pb-[8%]">
+                <div className="w-full h-full flex absolute pt-[10%] pb-[10%]">
                     <div className="w-1/2 h-full p-5 border-r border-white">
                         <h2 className="text-white w-full text-center text-4xl p-6">Services</h2>
                         {domains.map((domain,i) => (
@@ -134,7 +139,7 @@ const Home = () => {
                         ))}
                     </div>
                     <div className="w-1/2 h-full border-l border-white flex content-end items-end">
-                    <h2 className="text-white w-full text-center text-4xl p-6">See our team & portofolio</h2>
+                        <h2 className="text-white w-full text-center text-4xl p-6">See our team & portofolio</h2>
                     </div>
                 </div>
             </ParallaxLayer>
@@ -156,7 +161,9 @@ const Home = () => {
             </ParallaxLayer>
             <ParallaxLayer
             offset={2}
-            className="bg-[#414141]">
+            className="bg-[#414141] flex flex-col justify-center items-center">
+                <Contact />
+                <Footer />
             </ParallaxLayer>
         </Parallax>
     </>

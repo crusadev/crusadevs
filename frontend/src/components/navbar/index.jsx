@@ -18,7 +18,7 @@ const Navbar = () => {
         },
         {
             display:"Contact",
-            path:"/contact"
+            path:"#contact"
         }
     ]
 
@@ -26,6 +26,13 @@ const Navbar = () => {
         <div className="w-full flex content-center items-center fixed z-10">
             <img src={Logo} className="w-[7%] p-6"/>
             {links.map((link,i) => (
+                link.display == "Contact" ?
+                <a
+                className="text-white hover:underline p-6"
+                to={link.path}
+                key={i}
+                href="/#contact">{link.display}</a>
+                :
                 <Link
                 className="text-white hover:underline p-6"
                 to={link.path}
